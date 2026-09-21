@@ -1,0 +1,901 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Handover and testing guide for the South Walton Carts rental system.">
+<style>
+  :root { color-scheme: light dark; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; }
+  img { max-width: 100%; }
+  [hidden] { display: none !important; }
+</style>
+  <title>South Walton Carts Handover</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Mono:wght@400;600&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap">
+</head>
+<body>
+<style>
+  :root {
+    --paper:      #F5F4EF;
+    --surface:    #FFFFFF;
+    --surface-2:  #EFEEE7;
+    --ink:        #17252B;
+    --ink-soft:   #4A5C63;
+    --ink-faint:  #7C8C92;
+    --rule:       #DCDAD1;
+    --marine:     #1C5567;
+    --marine-2:   #2E7B91;
+    --seagrass:   #5E8A34;
+    --sand:       #B08A3E;
+    --clay:       #A34428;
+    --shadow:     0 1px 2px rgba(23,37,43,.06), 0 8px 24px rgba(23,37,43,.05);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper:     #10191D;
+      --surface:   #16232A;
+      --surface-2: #1D2F37;
+      --ink:       #E7EDEF;
+      --ink-soft:  #A9BCC3;
+      --ink-faint: #7B9099;
+      --rule:      #2A3D46;
+      --marine:    #6FC0D8;
+      --marine-2:  #8FD3E7;
+      --seagrass:  #9CC768;
+      --sand:      #DCB463;
+      --clay:      #E5866A;
+      --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --paper:     #10191D;
+    --surface:   #16232A;
+    --surface-2: #1D2F37;
+    --ink:       #E7EDEF;
+    --ink-soft:  #A9BCC3;
+    --ink-faint: #7B9099;
+    --rule:      #2A3D46;
+    --marine:    #6FC0D8;
+    --marine-2:  #8FD3E7;
+    --seagrass:  #9CC768;
+    --sand:      #DCB463;
+    --clay:      #E5866A;
+    --shadow:    0 1px 2px rgba(0,0,0,.4), 0 8px 24px rgba(0,0,0,.3);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: "IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .shell {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 0 96px;
+  }
+
+  @media (min-width: 1000px) {
+    .shell { grid-template-columns: 216px minmax(0, 1fr); gap: 56px; }
+  }
+
+  /* ── Masthead ─────────────────────────────────────────── */
+  .masthead {
+    grid-column: 1 / -1;
+    border-bottom: 1px solid var(--rule);
+    padding-block: 56px 32px;
+    margin-bottom: 8px;
+  }
+  .eyebrow {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--marine);
+    margin: 0 0 14px;
+  }
+  h1 {
+    font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(30px, 5.5vw, 46px);
+    line-height: 1.08;
+    letter-spacing: -.02em;
+    margin: 0 0 16px;
+    text-wrap: balance;
+  }
+  .standfirst {
+    font-size: clamp(17px, 2.2vw, 19px);
+    line-height: 1.55;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin: 0;
+  }
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 22px;
+    margin-top: 26px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    color: var(--ink-faint);
+  }
+  .meta b { color: var(--ink-soft); font-weight: 600; }
+
+  /* ── Contents rail ────────────────────────────────────── */
+  nav.toc { display: none; }
+  @media (min-width: 1000px) {
+    nav.toc {
+      display: block;
+      position: sticky;
+      top: calc(24px + env(safe-area-inset-top, 0px));
+      align-self: start;
+      font-size: 13.5px;
+      line-height: 1.45;
+    }
+    nav.toc p {
+      font-family: "IBM Plex Mono", ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin: 0 0 12px;
+    }
+    nav.toc a {
+      display: block;
+      padding: 5px 0;
+      color: var(--ink-soft);
+      text-decoration: none;
+      border-left: 2px solid var(--rule);
+      padding-left: 12px;
+    }
+    nav.toc a:hover { color: var(--marine); border-left-color: var(--marine); }
+  }
+
+  main { min-width: 0; }
+
+  section { margin-bottom: 60px; scroll-margin-top: 24px; }
+
+  h2 {
+    font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(22px, 3.4vw, 28px);
+    letter-spacing: -.015em;
+    line-height: 1.2;
+    margin: 0 0 6px;
+    text-wrap: balance;
+  }
+  h2 + .lede { color: var(--ink-soft); margin: 0 0 26px; max-width: 64ch; }
+
+  h3 {
+    font-family: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    letter-spacing: -.005em;
+    margin: 30px 0 8px;
+  }
+
+  p { max-width: 68ch; margin: 0 0 14px; }
+  a { color: var(--marine); }
+
+  strong { font-weight: 600; }
+  em.term { font-style: normal; font-weight: 600; color: var(--ink); }
+
+  /* ── Chips ────────────────────────────────────────────── */
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: 3px 9px;
+    border-radius: 3px;
+    white-space: nowrap;
+    border: 1px solid transparent;
+  }
+  .chip.done  { color: var(--seagrass); border-color: color-mix(in srgb, var(--seagrass) 40%, transparent); }
+  .chip.you   { color: var(--sand);     border-color: color-mix(in srgb, var(--sand) 45%, transparent); }
+  .chip.later { color: var(--ink-faint);border-color: var(--rule); }
+
+  /* ── Panels ───────────────────────────────────────────── */
+  .panel {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 6px;
+    padding: 22px 24px;
+    box-shadow: var(--shadow);
+  }
+  .panel + .panel { margin-top: 14px; }
+  .panel h3 { margin-top: 0; }
+  .panel p:last-child { margin-bottom: 0; }
+
+  .callout {
+    border-left: 3px solid var(--marine);
+    background: var(--surface-2);
+    border-radius: 0 5px 5px 0;
+    padding: 16px 20px;
+    margin: 22px 0;
+  }
+  .callout p:last-child { margin-bottom: 0; }
+  .callout.warn { border-left-color: var(--clay); }
+
+  /* ── Money breakdown ──────────────────────────────────── */
+  .ledger {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 13.5px;
+    font-variant-numeric: tabular-nums;
+    margin: 4px 0 0;
+  }
+  .ledger div {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 7px 0;
+    border-bottom: 1px dashed var(--rule);
+  }
+  .ledger div:last-child { border-bottom: 0; }
+  .ledger .tot { font-weight: 600; border-top: 2px solid var(--rule); border-bottom: 0; margin-top: 4px; padding-top: 10px; }
+  .ledger span:first-child { color: var(--ink-soft); }
+
+  /* ── Tables ───────────────────────────────────────────── */
+  .scroller { overflow-x: auto; margin: 18px 0; border: 1px solid var(--rule); border-radius: 6px; background: var(--surface); }
+  table { border-collapse: collapse; width: 100%; font-size: 14px; }
+  th, td { text-align: left; padding: 10px 14px; border-bottom: 1px solid var(--rule); vertical-align: top; }
+  thead th {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 10.5px;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  td.num { font-family: "IBM Plex Mono", ui-monospace, monospace; font-variant-numeric: tabular-nums; white-space: nowrap; }
+
+  .swatch { display: inline-block; width: 11px; height: 11px; border-radius: 2px; margin-right: 8px; vertical-align: -1px; border: 1px solid rgba(0,0,0,.12); }
+
+  /* ── Ordered steps ────────────────────────────────────── */
+  ol.steps { counter-reset: s; list-style: none; padding: 0; margin: 18px 0 0; }
+  ol.steps > li {
+    counter-increment: s;
+    position: relative;
+    padding-left: 42px;
+    margin-bottom: 22px;
+  }
+  ol.steps > li::before {
+    content: counter(s);
+    position: absolute;
+    left: 0; top: 0;
+    width: 26px; height: 26px;
+    display: grid; place-items: center;
+    background: var(--marine);
+    color: var(--surface);
+    border-radius: 50%;
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  :root[data-theme="dark"] ol.steps > li::before { color: #0F1A1F; }
+  ol.steps > li p:last-child { margin-bottom: 0; }
+
+  ul.plain { padding-left: 20px; margin: 0 0 14px; max-width: 68ch; }
+  ul.plain li { margin-bottom: 7px; }
+
+  code {
+    font-family: "IBM Plex Mono", ui-monospace, monospace;
+    font-size: .88em;
+    background: var(--surface-2);
+    padding: 1.5px 5px;
+    border-radius: 3px;
+  }
+
+  .grid2 { display: grid; gap: 14px; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+
+  footer {
+    grid-column: 1 / -1;
+    border-top: 1px solid var(--rule);
+    padding-top: 26px;
+    color: var(--ink-faint);
+    font-size: 14px;
+  }
+
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+
+<div class="shell">
+
+  <header class="masthead">
+    <p class="eyebrow">Handover &amp; Testing Guide</p>
+    <h1>South Walton Carts Rental System</h1>
+    <p class="standfirst">
+      Everything in your two requirement documents is now built, along with the decisions you sent
+      on 14 September and the rules in your own 2026 rental agreement. This explains what the
+      system does, how to test it, and the short list of things only you can provide.
+    </p>
+    <div class="meta">
+      <span><b>Prepared for</b> South Walton Carts LLC</span>
+      <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
+      <span><b>Status</b> Ready for your testing</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <p>Contents</p>
+    <a href="#decisions">Your decisions</a>
+    <a href="#money">How the money works</a>
+    <a href="#journey">A booking, start to finish</a>
+    <a href="#automatic">What runs on its own</a>
+    <a href="#office">Running it from the office</a>
+    <a href="#apps">The two apps</a>
+    <a href="#testing">How to test</a>
+    <a href="#from-you">What we need from you</a>
+    <a href="#later">Not in this release</a>
+    <a href="#reference">Reference tables</a>
+  </nav>
+
+  <main>
+
+    <!-- ── DECISIONS ─────────────────────────────────────── -->
+    <section id="decisions">
+      <h2>Your decisions, and what we did with them</h2>
+      <p class="lede">
+        You answered four questions on 14 September. Here is exactly how each one was built, so
+        there are no surprises when you test.
+      </p>
+
+      <div class="panel">
+        <h3>Rental length <span class="chip done">Built</span></h3>
+        <p>
+          Rentals of <strong>one to three days</strong> are counted in 24-hour increments.
+          <strong>Four to fourteen days</strong> are counted by night — dropped off in the
+          afternoon, collected in the morning.
+        </p>
+        <p>
+          Your wording said “1 to 3 day” and “3 to 14 day”, which overlap at three. We read three
+          as 24-hour, because that puts the split exactly on the price bands you confirmed in the
+          same message.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>The $250 damage deposit <span class="chip done">Built</span></h3>
+        <p>
+          It is <strong>held on the card, never charged</strong> — which is also what your 2026
+          agreement says: “South Walton Carts reserves the right to hold a $250 damage deposit on
+          the credit card provided.”
+        </p>
+        <p>
+          Worth knowing: a hold costs you nothing. It is <em class="term">refunds</em> that carry a
+          processing fee, so holding is the cheaper option as well as the friendlier one. A hold
+          also expires after about a week, so on longer rentals the system quietly places a fresh
+          one before the old one lapses. You never have to think about it.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Prices <span class="chip done">Built</span></h3>
+        <p>
+          Prices are a <strong>daily rate</strong>, set per season and per cart model, across the
+          five length bands you confirmed: 1, 2–3, 4–5, 6–7 and 8–14 days.
+        </p>
+        <p>
+          You can type them in, or <strong>upload a spreadsheet</strong>. Download a blank template
+          from the pricing screen — it already has your cart models filled in — enter your prices,
+          and upload it back. You see exactly what will change before anything is saved.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Calendar colours <span class="chip done">Built</span></h3>
+        <p>
+          All seven of your colours are in, and each one is worked out by the system rather than
+          set by hand — so a cart can never be made deliverable by changing a colour.
+        </p>
+        <p>
+          Your list did not cover a cart that is simply out with a customer, so that one is
+          <strong>teal</strong>, and a booking needing attention is outlined in red over whatever
+          colour it already has. Both are easy to change if you would rather they were something
+          else. Full list in the <a href="#reference">reference tables</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── MONEY ─────────────────────────────────────────── -->
+    <section id="money">
+      <h2>How the money works</h2>
+      <p class="lede">
+        You told us a one-night rental reading as “$434” would stop you renting a cart. That is
+        fixed, and the principle now runs through the whole system: <strong>different kinds of
+        money are never added together.</strong>
+      </p>
+
+      <h3>Booking within 14 days — “Book Now”</h3>
+      <p>The customer pays the rental in full today, and the deposit is held separately.</p>
+      <div class="panel">
+        <div class="ledger">
+          <div><span>Rent (3 nights, 4-passenger electric)</span><span>$435.00</span></div>
+          <div><span>Florida sales tax, 7%</span><span>$30.45</span></div>
+          <div><span>Online booking fee, 5%</span><span>$21.75</span></div>
+          <div class="tot"><span>Rental charge</span><span>$487.20</span></div>
+        </div>
+        <p style="margin-top:18px">
+          <span class="chip later">Separate</span>
+          &nbsp;$250.00 refundable damage deposit — <strong>held on the card, not charged.</strong>
+        </p>
+      </div>
+      <p>
+        Two figures, never one. The customer sees what they are paying and what is merely being
+        held, on every screen and in every email.
+      </p>
+
+      <h3>Booking more than 14 days out — “Reserve Later”</h3>
+      <p>
+        The customer pays a <strong>$125 reservation deposit</strong> today. It is non-refundable,
+        and it comes off the rental. They must tick a box confirming that, and confirming they have
+        checked that carts are allowed at the property.
+      </p>
+      <p>
+        At the 14-day mark the system charges the rest of the rental to the card on file and places
+        the deposit hold — by itself, at any hour. If the card fails, the booking is flagged in red,
+        you are told, and <strong>the cart cannot go out</strong> until it is sorted.
+      </p>
+      <div class="callout">
+        <p>
+          That checkbox only appears on bookings more than 14 days out. Inside 14 days there is no
+          reservation deposit, so there is nothing non-refundable to acknowledge.
+        </p>
+      </div>
+
+      <h3>Cancellation</h3>
+      <p>Straight from your agreement, and now actually enforced:</p>
+      <ul class="plain">
+        <li><strong>48 hours’ notice or more</strong> — no cancellation fee, but a $100 paperwork fee.</li>
+        <li><strong>Inside 48 hours</strong> — the paperwork fee plus a further $125.</li>
+      </ul>
+      <p>
+        The fee comes <em class="term">out of</em> the refund rather than being charged separately,
+        so the customer sees one transaction instead of two. If they have paid nothing yet, it goes
+        on the card. The deposit hold is released automatically either way.
+      </p>
+      <p>
+        Customers can cancel from their own booking page, and the office can cancel with any fee
+        waived.
+      </p>
+
+      <h3>Charging for damage and extras</h3>
+      <p>
+        All twenty-odd charges in your agreement are in the system — curbed wheel, returned
+        uncharged, extra dirty, feet on the dash, labour by the hour, and the rest. On any booking
+        you pick the charges, see the total, and take it from the card on file.
+      </p>
+      <p>
+        A per-wheel charge multiplies properly, you can override any amount with a note, and you can
+        add something the list does not cover. Each charge is its own transaction and its own
+        FreshBooks invoice, so a dispute about damage can never drag the rental charge into it.
+      </p>
+    </section>
+
+    <!-- ── JOURNEY ───────────────────────────────────────── -->
+    <section id="journey">
+      <h2>A booking, start to finish</h2>
+      <p class="lede">What actually happens, in order.</p>
+
+      <ol class="steps">
+        <li>
+          <h3 style="margin-top:0">The customer picks a cart and dates</h3>
+          <p>
+            Five categories. The date picker checks real availability and real prices — not a
+            calendar that lets them choose and disappoints them later. More than 14 days and it
+            stops them and points them to you for a special rate.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">They make an account</h3>
+          <p>
+            Name, email, phone, date of birth. A six-digit code goes to their email and they type it
+            in without leaving the page, so a half-finished booking is never lost. Anyone under 21
+            is refused — your agreement says so in three separate places.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">They pay</h3>
+          <p>
+            Book Now or Reserve Later, worked out automatically from the dates. Card details go
+            straight to Stripe; we never see or store a card number.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">The cart is reserved</h3>
+          <p>
+            Only once the money has cleared. A failed payment never takes a cart out of stock.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">They finish the paperwork</h3>
+          <p>
+            Sign the agreement, upload licence and insurance. They can come back later without
+            losing the booking, and the system chases them if they do not.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">It turns green</h3>
+          <p>
+            Only when <strong>everything</strong> is true: paid, no failed payment, card on file,
+            agreement signed, licence and insurance uploaded, every driver 21 or over, and a cart
+            assigned. Nobody can mark it ready by hand.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">Your driver delivers it</h3>
+          <p>
+            The driver app shows the day’s stops with addresses, cart tag and customer details. They
+            mark it delivered and the schedule updates instantly.
+          </p>
+        </li>
+        <li>
+          <h3 style="margin-top:0">It comes back</h3>
+          <p>
+            Marked collected, the deposit hold is released, the customer is emailed, and — if
+            nothing was withheld and you have not said otherwise — they are asked for a review.
+          </p>
+          <p>
+            That review request is already pointed at your Google listing, so nothing is needed
+            from you to switch it on. Nobody is asked if you kept any of their deposit, if damage
+            was reported, or if you have turned the request off for that rental.
+          </p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ── AUTOMATIC ─────────────────────────────────────── -->
+    <section id="automatic">
+      <h2>What runs on its own</h2>
+      <p class="lede">
+        These are rules the system enforces, not reminders for your staff. None of them depend on
+        anyone remembering.
+      </p>
+
+      <div class="scroller">
+        <table>
+          <thead><tr><th>When this happens</th><th>The system does this</th></tr></thead>
+          <tbody>
+            <tr><td>A booking reaches 14 days out</td><td>Charges the rest of the rental and places the deposit hold</td></tr>
+            <tr><td>That payment fails</td><td>Flags the booking, emails you, blocks delivery</td></tr>
+            <tr><td>A deposit hold is about to expire</td><td>Places a fresh one so the cart is never uncovered</td></tr>
+            <tr><td>Payment clears</td><td>Commits a specific cart and puts it on the schedule</td></tr>
+            <tr><td>Paperwork is missing</td><td>Keeps the booking out of “ready”, and chases the customer</td></tr>
+            <tr><td>A cart is marked damaged or in maintenance</td><td>Removes it from what can be booked</td></tr>
+            <tr><td>New damage is reported</td><td>Alerts the office and marks the cart on the calendar</td></tr>
+            <tr><td>A cart is collected</td><td>Starts closeout — deposit released, review requested</td></tr>
+            <tr><td>A booking is cancelled</td><td>Frees the cart, settles the fee, releases the hold</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>One cart, one booking, one day</strong> — enforced by the database itself, not by
+          careful code. Two customers cannot be given the same cart even if they pay at the same
+          instant.
+        </p>
+        <p style="margin-top:10px">
+          There is one exception, and it is deliberate. Your schedule spreadsheet is full of cells
+          reading <code>PU/DO</code> — a cart collected at 8 AM and delivered to the next customer
+          that afternoon. The system now allows exactly that, so you do not lose a day’s rental on
+          every turnaround.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── OFFICE ────────────────────────────────────────── -->
+    <section id="office">
+      <h2>Running it from the office</h2>
+
+      <h3>The fleet calendar</h3>
+      <p>
+        A month at a time, one row per cart, one column per day — the same shape as your
+        spreadsheet, deliberately. Colour tells you the state without opening anything. Click a
+        block to open the booking, click a day to see everything happening that day, and switch to
+        compact to fit more carts on screen.
+      </p>
+
+      <h3>Finding anything</h3>
+      <p>
+        One search box takes a name, an email, a phone number, a booking reference or a cart tag. A
+        customer record carries their bookings, agreement, licence and insurance, invoices, payment
+        history, deposit status, damage reports and extra drivers.
+      </p>
+
+      <h3>Everything you can still do by hand</h3>
+      <div class="grid2">
+        <div class="panel">
+          <h3>Bookings &amp; fleet</h3>
+          <ul class="plain" style="margin-bottom:0">
+            <li>Take a booking over the phone</li>
+            <li>Assign a driver to each leg</li>
+            <li>Mark a cart damaged, in maintenance, or off the road</li>
+            <li>Cancel, with any fee waived</li>
+            <li>Block out dates entirely</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Money &amp; people</h3>
+          <ul class="plain" style="margin-bottom:0">
+            <li>Refund against policy, with a reason recorded</li>
+            <li>Keep all or part of a deposit</li>
+            <li>Charge damage and fees to the card</li>
+            <li>Add or remove driver accounts</li>
+            <li>Flag a difficult customer</li>
+            <li>Turn off the review request for one rental</li>
+          </ul>
+        </div>
+      </div>
+      <p style="margin-top:18px">
+        Anything involving money or a status change is recorded against the person who did it, with
+        the time and the reason. If a charge is ever queried, the history is there.
+      </p>
+
+      <h3>Changing what the apps say</h3>
+      <p>
+        <strong>Admin → App Content</strong> holds the safety video, the rules of the road, the
+        check-in and check-out instructions, your contact details and the review link. Edit them
+        there and the apps update immediately — no new app release, no developer.
+      </p>
+      <p>
+        Your rules, check-in and check-out text are already in, taken word for word from your 2026
+        agreement.
+      </p>
+    </section>
+
+    <!-- ── APPS ──────────────────────────────────────────── -->
+    <section id="apps">
+      <h2>The two apps</h2>
+
+      <div class="grid2">
+        <div class="panel">
+          <h3>Customer app</h3>
+          <ul class="plain" style="margin-bottom:0">
+            <li>Current and past rentals</li>
+            <li>Track the rental, with a countdown to delivery</li>
+            <li>Check in and check out, with photos</li>
+            <li>See damage already recorded on that cart before they drive it</li>
+            <li>Upload licence and insurance</li>
+            <li>Add extra drivers, each with their own licence</li>
+            <li>Safety video, rules, instructions</li>
+            <li>Tip the driver after pickup</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>Driver app</h3>
+          <ul class="plain" style="margin-bottom:0">
+            <li>Their day’s deliveries and collections</li>
+            <li>Address, customer and cart tag for each stop</li>
+            <li>Tap to open directions</li>
+            <li>Mark delivered, mark collected</li>
+            <li>See existing damage on the cart</li>
+            <li>Photograph and report new damage</li>
+            <li>Works offline — actions send when signal returns</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Damage follows the cart, not the booking.</strong> When a customer checks in, they
+          see every photo taken of that cart on previous rentals. That is what stops the argument
+          about whether a scratch was already there.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── TESTING ───────────────────────────────────────── -->
+    <section id="testing">
+      <h2>How to test</h2>
+      <p class="lede">
+        Everything is in test mode, so no real money moves. Use the test card below — it behaves
+        exactly like a real one.
+      </p>
+
+      <div class="panel">
+        <h3>Test card</h3>
+        <p class="ledger" style="margin:0">
+          <span style="display:block">Number <strong>4242 4242 4242 4242</strong></span>
+          <span style="display:block">Expiry — any future date &nbsp;·&nbsp; CVC — any 3 digits &nbsp;·&nbsp; ZIP — any</span>
+        </p>
+        <p style="margin-top:14px;margin-bottom:0">
+          To watch a payment <em class="term">fail</em> on purpose, use
+          <strong>4000 0000 0000 0341</strong>. It accepts the booking and then declines the
+          14-day charge, which is how you see the red warning and the blocked delivery.
+        </p>
+      </div>
+
+      <h3>A run worth doing</h3>
+      <ol class="steps">
+        <li><p>Book a cart <strong>next week</strong>. You should pay in full, and see the rental and the deposit as two separate figures.</p></li>
+        <li><p>Book one <strong>two months out</strong>. You should pay $125, tick the acknowledgement, and see what is due later.</p></li>
+        <li><p>Sign the agreement and upload a licence and insurance photo. Watch the booking turn green only once everything is done.</p></li>
+        <li><p>Open the admin calendar. Find both bookings, check the colours, click into one.</p></li>
+        <li><p>Assign a driver, then open the driver app and mark it delivered.</p></li>
+        <li><p>Mark it collected. The deposit hold should release and the customer should be emailed.</p></li>
+        <li><p>Add a damage charge to a finished booking and take it from the card.</p></li>
+        <li><p>Cancel something inside 48 hours and check the fee is what your agreement says.</p></li>
+        <li><p>Try to book with a date of birth under 21. It should refuse you.</p></li>
+      </ol>
+
+      <div class="callout warn">
+        <p>
+          <strong>The cart photos and tag numbers are placeholders.</strong> Tags are six-digit
+          stand-ins and the photos are stock, exactly as you asked. Send your real tag numbers and
+          photos and they go straight in.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── FROM YOU ──────────────────────────────────────── -->
+    <section id="from-you">
+      <h2>What we need from you</h2>
+      <p class="lede">
+        Short list, and none of it blocks you testing today. Everything else you have already sent
+        is in.
+      </p>
+
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Item</th><th>Why</th><th>Where it goes</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><strong>Safety video link</strong></td>
+              <td>The app’s safety section stays hidden until it has one</td>
+              <td>Admin → App Content</td>
+            </tr>
+            <tr>
+              <td><strong>Your prices</strong></td>
+              <td>A photo of your spreadsheet is fine, or upload it directly</td>
+              <td>Admin → Pricing</td>
+            </tr>
+            <tr>
+              <td><strong>Cart tag numbers &amp; photos</strong></td>
+              <td>Replaces the placeholders</td>
+              <td>Send them over</td>
+            </tr>
+            <tr>
+              <td><strong>Sending email address</strong></td>
+              <td>So booking emails come from your domain, not a test address</td>
+              <td>Needs your DNS access</td>
+            </tr>
+            <tr>
+              <td><strong>FreshBooks redirect address</strong></td>
+              <td>Connects invoicing. We will walk you through it</td>
+              <td>Your FreshBooks developer settings</td>
+            </tr>
+            <tr>
+              <td><strong>Apple &amp; Google accounts</strong></td>
+              <td>To publish the apps to the stores</td>
+              <td>When you are ready to launch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout">
+        <p>
+          On the FreshBooks one — you asked what it meant, and it is a fair question. It is one line
+          you paste into a settings box in your FreshBooks developer account, which tells FreshBooks
+          it is allowed to talk to your rental system. We will send a screenshot showing exactly
+          where it goes.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── LATER ─────────────────────────────────────────── -->
+    <section id="later">
+      <h2>Not in this release</h2>
+      <p class="lede">Two things we have deliberately left, and why.</p>
+
+      <div class="panel">
+        <h3>The no-cart-zone map <span class="chip later">Deferred</span></h3>
+        <p>
+          Your functional requirements call this secondary and say it should not hold up the main
+          system. Instead, the booking form warns a customer whose delivery address is on one of the
+          Old Seagrove roads you asked renters to avoid — and still lets them book, because your
+          agreement says you rent to those streets.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Bulk messaging <span class="chip later">Deferred</span></h3>
+        <p>
+          Your document says a built-in system is desirable but not required if the numbers can be
+          pulled out quickly. You can pick any date range on the schedule and copy out the phone
+          numbers and emails of everyone with a cart during it — for a storm, say — and use whatever
+          messaging service you prefer.
+        </p>
+      </div>
+    </section>
+
+    <!-- ── REFERENCE ─────────────────────────────────────── -->
+    <section id="reference">
+      <h2>Reference tables</h2>
+
+      <h3>Your five cart categories</h3>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Category</th><th>Placeholder tags</th></tr></thead>
+          <tbody>
+            <tr><td>4-passenger electric</td><td class="num">204101 →</td></tr>
+            <tr><td>4-passenger gas</td><td class="num">204201 →</td></tr>
+            <tr><td>6-passenger gas</td><td class="num">204301 →</td></tr>
+            <tr><td>6-passenger electric</td><td class="num">204401 →</td></tr>
+            <tr><td>8-passenger electric</td><td class="num">204501 →</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Calendar colours</h3>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Colour</th><th>What it means</th></tr></thead>
+          <tbody>
+            <tr><td><span class="swatch" style="background:#9C36B5"></span>Purple</td><td>Reservation deposit paid, nothing else done yet</td></tr>
+            <tr><td><span class="swatch" style="background:#E8B923"></span>Yellow</td><td>Paid in full, not delivered</td></tr>
+            <tr><td><span class="swatch" style="background:#2F9E44"></span>Green</td><td>Ready to be delivered</td></tr>
+            <tr><td><span class="swatch" style="background:#22A2C3"></span>Teal</td><td>Out with the customer <em>(our addition — your list had none)</em></td></tr>
+            <tr><td><span class="swatch" style="background:#C92A2A"></span>Red</td><td>New damage found</td></tr>
+            <tr><td><span class="swatch" style="background:#E8590C"></span>Orange</td><td>Finished, damage deposit kept</td></tr>
+            <tr><td><span class="swatch" style="background:#1971C2"></span>Blue</td><td>Finished, damage deposit returned</td></tr>
+            <tr><td><span class="swatch" style="background:#94D82D"></span>Light green</td><td>Finished, deposit returned, review requested</td></tr>
+            <tr><td><span class="swatch" style="background:transparent;border:2px solid #C92A2A"></span>Red outline</td><td>Needs your attention — sits over any colour</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h3>Key figures</h3>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>Item</th><th>Amount</th></tr></thead>
+          <tbody>
+            <tr><td>Reservation deposit (bookings over 14 days out)</td><td class="num">$125 · non-refundable</td></tr>
+            <tr><td>Damage deposit</td><td class="num">$250 · held, not charged</td></tr>
+            <tr><td>Florida sales tax</td><td class="num">7%</td></tr>
+            <tr><td>Online booking fee</td><td class="num">5%</td></tr>
+            <tr><td>Cancellation paperwork fee</td><td class="num">$100</td></tr>
+            <tr><td>Cancellation inside 48 hours</td><td class="num">+ $125</td></tr>
+            <tr><td>Longest rental bookable online</td><td class="num">14 days</td></tr>
+            <tr><td>How far ahead customers can book</td><td class="num">2 years</td></tr>
+            <tr><td>Minimum driver age</td><td class="num">21</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p style="margin:0">
+      Figures and rules in this document are taken from your 2026 rental agreement, your functional
+      requirements document, and your answers of 14 September. If anything here does not match how
+      you actually work, tell us and we will change it — it is all configurable.
+    </p>
+  </footer>
+
+</div>
+
+</body>
+</html>
