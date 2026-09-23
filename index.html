@@ -233,6 +233,7 @@
   }
   .callout p:last-child { margin-bottom: 0; }
   .callout.warn { border-left-color: var(--clay); }
+  .callout.fixed { border-left-color: var(--seagrass); }
 
   /* ── Money breakdown ──────────────────────────────────── */
   .ledger {
@@ -332,13 +333,14 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Ready for your testing</span>
+      <span><b>Status</b> Both 23 September problems fixed and live</span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
 
   <nav class="toc">
     <p>Contents</p>
+    <a href="#fixed">What you found on 23 Sep</a>
     <a href="#decisions">Your decisions</a>
     <a href="#money">How the money works</a>
     <a href="#journey">A booking, start to finish</a>
@@ -352,6 +354,72 @@
   </nav>
 
   <main>
+
+    <!-- ── FIXED 23 SEP ──────────────────────────────────── -->
+    <section id="fixed">
+      <h2>What you found on 23 September</h2>
+      <p class="lede">
+        You sent two videos and two screenshots. Both problems were ours, both are fixed, and both
+        fixes are live on the address below. Here is what was actually wrong.
+      </p>
+
+      <div class="panel">
+        <h3>The verification email never arrived</h3>
+        <p>
+          The system created your six-digit code correctly, and then the email was thrown away
+          before it left. Our mail service was still on its trial setting, which only delivers to
+          the developer&rsquo;s own address &mdash; anything addressed to you, or to a customer,
+          was rejected without a word.
+        </p>
+        <p>
+          That is also why your original address would not work the second time. The account had
+          been created and was sitting there waiting on a message it could never receive, so
+          signing up again told you the address was already taken.
+        </p>
+        <p style="margin-bottom:0">
+          Mail now goes out properly, and has been tested from sign-up through to a code landing
+          in a real inbox.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>&ldquo;Account details are missing. Please go back and complete your profile.&rdquo;</h3>
+        <p>
+          A genuine bug, and there was no profile page to go back to. You were signed in on the
+          admin account, which is stored under the single name &ldquo;Admin&rdquo; with no
+          surname. The payment step insisted on a surname and gave you nowhere to type one.
+        </p>
+        <p style="margin-bottom:0">
+          It now asks for whatever it is missing &mdash; name, phone, date of birth &mdash; before
+          you reach payment, instead of stopping you at the end. Every account that came from
+          somewhere other than the sign-up form is covered, not just the admin one.
+        </p>
+      </div>
+
+      <div class="callout fixed">
+        <p>
+          <strong>To pick up where you left off:</strong>
+          <a href="https://swcarts.captain.goodgoodcarwash.com/auth/check-email?email=southwaltoncartsales%40gmail.com">open your verification screen</a>
+          and press <strong>Send a new code</strong>. It arrives within a minute. Check your spam
+          folder the first time &mdash; it is a new sender, so it sometimes lands there once
+          before your inbox learns it.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p>
+          <strong>Emails currently come from a personal Gmail address.</strong> That is temporary,
+          for testing only. They will come from your own swcarts.com address once the domain
+          records are in place &mdash; that is on the short list further down.
+        </p>
+      </div>
+
+      <p style="margin-bottom:0">
+        Everything else in your videos was working as intended. The calendar looked empty because
+        there were no bookings in that month yet, and the invoice list fills in once a booking has
+        been paid for.
+      </p>
+    </section>
 
     <!-- ── DECISIONS ─────────────────────────────────────── -->
     <section id="decisions">
@@ -745,6 +813,15 @@
           To watch a payment <em class="term">fail</em> on purpose, use
           <strong>4000 0000 0000 0341</strong>. It accepts the booking and then declines the
           14-day charge, which is how you see the red warning and the blocked delivery.
+        </p>
+      </div>
+
+      <div class="callout">
+        <p>
+          <strong>Test as a customer as well as an admin.</strong> The admin login skips parts of
+          the journey a real customer goes through, and that is exactly where both of the
+          23 September problems were hiding. Make yourself a separate customer account, on a
+          different email address, and book with that too.
         </p>
       </div>
 
