@@ -333,13 +333,14 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Both 23 September problems fixed and live</span>
+      <span><b>Status</b> Everything from 23 and 28 September fixed and live</span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
 
   <nav class="toc">
     <p>Contents</p>
+    <a href="#fixed-28">What you found on 28 Sep</a>
     <a href="#fixed">What you found on 23 Sep</a>
     <a href="#decisions">Your decisions</a>
     <a href="#money">How the money works</a>
@@ -354,6 +355,74 @@
   </nav>
 
   <main>
+
+    <!-- ── FIXED 28 SEP ──────────────────────────────────── -->
+    <section id="fixed-28">
+      <h2>What you found on 28 September</h2>
+      <p class="lede">
+        Seven videos. One real problem in them, which is fixed. Checking the rest turned up a
+        second one you had not reported, and that is fixed too. Everything else you filmed was
+        behaving correctly &mdash; it is listed at the end so you do not have to wonder.
+      </p>
+
+      <div class="panel">
+        <h3>The signature would not save</h3>
+        <p>
+          You signed, pressed the button, and got &ldquo;Failed to save your signature. Please try
+          again.&rdquo; Trying again could never have worked. The message was wrong to suggest it
+          might &mdash; the failure was the same every time, for every customer.
+        </p>
+        <p>
+          The cause was ours and recent. When we built the screen that lets your office review a
+          signed agreement, it added a field to the booking record that the signing step did not
+          expect. Saving a signature tried to write that field too, the database refused the whole
+          record, and nothing was stored.
+        </p>
+        <p style="margin-bottom:0">
+          Signing now writes only what it should, and leaves an office review of an earlier
+          signature untouched. Your booking is still waiting &mdash; open it and sign, and it
+          should move straight on to the licence and insurance upload.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Two cart models you cannot rent, and one you can that was hidden</h3>
+        <p>
+          You did not report this; we found it while going back through your videos. The booking
+          page was offering the old 2-seaters, which have no carts behind them any more, and the
+          list was capped at six models &mdash; so those two dead entries pushed your
+          <strong>8-seater off the end of the list entirely</strong>.
+        </p>
+        <p style="margin-bottom:0">
+          A customer could pick a cart that does not exist, and could never pick your largest one.
+          Both fixed: a model with no carts behind it no longer appears anywhere a customer looks,
+          and the list is no longer cut short.
+        </p>
+      </div>
+
+      <h3>Working as intended, so you know</h3>
+      <div class="panel">
+        <p>
+          <strong>&ldquo;Maximum Stay Exceeded&rdquo;</strong> is the 14-night limit on online
+          bookings. Longer rentals come to you directly for a rate, which is what you asked for.
+        </p>
+        <p>
+          <strong>The $150 check-in report</strong> is Option 2 out of your own rental agreement,
+          word for word.
+        </p>
+        <p>
+          <strong>The date boxes</strong> open a calendar when clicked. We tested this after
+          watching your video, in case they were not responding for you &mdash; if they were not,
+          tell us and we will look again.
+        </p>
+        <p style="margin-bottom:0">
+          <strong>The Reserve Later booking you completed</strong> came out right: $1,316.00 total,
+          which is $1,175.00 rent plus 7% Florida tax and the 5% booking fee. $125.00 taken at
+          booking, $1,191.00 due on 30 October &mdash; fourteen days before the rental &mdash; and
+          the $250.00 damage deposit held, not charged.
+        </p>
+      </div>
+    </section>
 
     <!-- ── FIXED 23 SEP ──────────────────────────────────── -->
     <section id="fixed">
