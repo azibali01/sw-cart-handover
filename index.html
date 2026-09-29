@@ -333,7 +333,7 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Everything from 23 and 28 September fixed and live</span>
+      <span><b>Status</b> Everything from 23 and 28 September fixed and live &middot; one decision waiting on you</span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
@@ -361,8 +361,9 @@
       <h2>What you found on 28 September</h2>
       <p class="lede">
         Seven videos, and we went through what you said in them as well as what was on screen.
-        Two problems fixed, everything you asked for done, your questions answered &mdash; and
-        one question back to you, near the end, that only you can settle.
+        Two problems fixed, everything you asked for done, your questions answered, and the
+        test bookings behind the &ldquo;charge did not go through&rdquo; emails cleared out &mdash; with one decision
+        left for you, near the end.
       </p>
 
       <div class="panel">
@@ -455,19 +456,70 @@
         </p>
       </div>
 
-      <div class="callout warn">
+      <h3>The &ldquo;charge did not go through&rdquo; emails</h3>
+      <div class="panel">
         <p>
-          <strong>One question for you: when are short rentals collected?</strong> You asked for the
-          end date to say pickups are before 10:00 AM, and every screen already says 8:00 to
-          10:00 AM. But on 14 September you had rentals of one to three days counted in 24-hour
-          blocks &mdash; and a cart dropped off at 2:00 PM completes its 24 hours at 2:00 PM the
-          next day. So behind the scenes, those short rentals are set up to be collected in the
-          afternoon.
+          The emails you received once the office alerts went live were about test bookings, not
+          customers. While we were checking the system we had made five bookings under
+          &ldquo;QA Customer 1&rdquo; to &ldquo;5&rdquo;, with no card on them, and left them in.
+          Once your office started being told about failed charges, the system found one of them
+          due for its balance &mdash; SWC-19PLIC, starting 5 October &mdash; and did exactly what
+          it should: it emailed all three of your addresses.
         </p>
         <p>
-          Which is right for a one, two or three-day rental: collected before 10:00 AM, or in the
-          afternoon? It changes how many hours the customer gets and when that cart can go out
-          again, so we have left it alone until you say.
+          <strong>All the test data is gone:</strong> the five bookings, the six test accounts
+          &mdash; including a test admin login &mdash; and the 20 days they were holding on your
+          carts, which are back on sale. Your own test bookings, and every real account, were
+          untouched.
+        </p>
+        <p style="margin-bottom:0">
+          <strong>We also changed how often you are told.</strong> The system retries a failed
+          card every day, and it was emailing you on every retry. Now you hear once, when a booking
+          first has a problem. The booking stays flagged in red in the admin panel until it is
+          paid, and if it is fixed and later fails again, you will be told again.
+        </p>
+      </div>
+
+      <h3>Your pickup question: our suggestion</h3>
+      <div class="panel">
+        <p>
+          You put it exactly: you want every drop-off between 2:00 and 4:00 PM, every last-day
+          pickup before 10:00 AM, and a customer who pays for one day to have it for 24 hours.
+          For a one-day rental those three cannot all be true &mdash; dropped off at 2:00 PM and
+          collected before 10:00 AM is closer to 18 or 20 hours. One of them has to give.
+        </p>
+        <p>
+          <strong>We suggest selling nights rather than days</strong>, the way a hotel does:
+          check in at 3:00, check out at 11:00, and it is &ldquo;one night&rdquo;. Nobody feels
+          short-changed, because nobody was sold 24 hours. A one-night rental would be dropped off
+          2:00 to 4:00 PM and collected by 10:00 AM the next morning.
+        </p>
+        <ul style="margin:0 0 14px 20px;padding:0">
+          <li><strong>One rule for every rental.</strong> Longer rentals already work this way,
+            and every screen already tells customers pickup is in the morning.</li>
+          <li><strong>Every cart can go straight back out.</strong> A morning pickup frees it for
+            someone else&rsquo;s afternoon drop-off the same day &mdash; the pickup-and-drop-off
+            days all through your own schedule. An afternoon pickup would block that, on exactly
+            the short rentals that turn over fastest.</li>
+          <li><strong>Your drivers&rsquo; day stays split:</strong> collections in the morning,
+            deliveries in the afternoon.</li>
+          <li><strong>Your prices do not change.</strong> The system already charges by the
+            night; only the collection time moves.</li>
+        </ul>
+        <p style="margin-bottom:0">
+          The cost is that a one-night customer has the cart for 18 to 20 hours, not 24. If you
+          feel that is short for your one-night price, lowering that one rate is simpler than
+          changing the rule. <strong>Or</strong>, if you would rather short rentals keep their
+          full 24 hours, they can be collected 2:00 to 4:00 PM on their last day instead, and the
+          site will say so. Either is a quick change.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p style="margin-bottom:0">
+          <strong>Waiting on you:</strong> sell by the night, with every pickup before 10:00 AM
+          &mdash; or keep 24 hours for rentals of one to three days, collected in the afternoon?
+          Until you choose, the site keeps telling customers pickup is 8:00 to 10:00 AM.
         </p>
       </div>
 
