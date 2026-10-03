@@ -333,13 +333,14 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Everything from 23 and 28 September fixed and live &middot; one decision waiting on you</span>
+      <span><b>Status</b> Everything from 23 Sep, 28 Sep and 3 Oct fixed and live &middot; the pickup decision and FreshBooks waiting on you</span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
 
   <nav class="toc">
     <p>Contents</p>
+    <a href="#fixed-03">What you found on 3 Oct</a>
     <a href="#fixed-28">What you found on 28 Sep</a>
     <a href="#fixed">What you found on 23 Sep</a>
     <a href="#decisions">Your decisions</a>
@@ -355,6 +356,138 @@
   </nav>
 
   <main>
+
+    <!-- ── FIXED 3 OCT ───────────────────────────────────── -->
+    <section id="fixed-03">
+      <h2>What you found on 3 October</h2>
+      <p class="lede">
+        Everything on the customer side is fixed, the schedule now reads like your spreadsheet, and
+        your two questions are answered below. FreshBooks is the one thing left, and it needs a few
+        minutes from you.
+      </p>
+
+      <div class="panel">
+        <h3>The signature line was off</h3>
+        <p style="margin-bottom:0">
+          You were right: the line appeared away from your finger or mouse, and further off the
+          further right you signed. The signature box was a fixed size behind the scenes and then
+          stretched to fit your screen, so every mark landed somewhere other than where you drew it.
+          The box now sizes itself to your screen, and the line follows your finger on phones and
+          computers alike. Scrolling on a phone also used to wipe a signature already drawn; it no
+          longer does.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Your details are asked for once</h3>
+        <p style="margin-bottom:0">
+          Name, phone number and date of birth were used for the booking but never saved to the
+          account, so a second rental asked for them all over again &mdash; and signing in asked for
+          a phone number every time. Both fixed. A customer gives them on their first rental, and on
+          the next one goes straight past that step.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Finishing a booking</h3>
+        <p>
+          <strong>&ldquo;Finish My Booking&rdquo; is now the biggest thing on the page</strong>
+          after paying, right at the top, instead of a small button under the receipt.
+        </p>
+        <p>
+          <strong>Signing goes straight on to the uploads.</strong> The moment the agreement is
+          signed, the page jumps to the licence and insurance upload, rather than leaving the
+          customer at the bottom of a long agreement.
+        </p>
+        <p style="margin-bottom:0">
+          <strong>As many drivers as they want.</strong> Under the customer&rsquo;s own documents
+          there is now an <em>Other Drivers</em> section: a name, date of birth, licence photo and
+          insurance card for each extra driver, up to six. Under-21s are refused. Your office can
+          open each driver&rsquo;s licence and insurance from the booking page. While building this
+          we found the app&rsquo;s own add-a-driver screen could never accept a licence photo; that
+          is fixed too, with no app update needed.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>The deposit email told you to finish a booking you had finished</h3>
+        <p style="margin-bottom:0">
+          That email is sent the moment the payment goes through &mdash; before anyone could
+          possibly have signed &mdash; so it asked everyone, including you, who finished straight
+          afterwards. It no longer asks. Instead, an hour after paying, the system checks: if the
+          agreement, licence or insurance is still missing, the customer gets one reminder listing
+          exactly what is left. If they have finished, they hear nothing.
+        </p>
+      </div>
+
+      <h3>The schedule</h3>
+      <div class="panel">
+        <p>
+          Your July sheet made the point well: fifty rentals cannot fit under one day of a monthly
+          calendar. The system already had a one-row-per-cart view, but it was hidden behind the
+          monthly calendar you were looking at, and it could not change month. Now
+          <strong>Admin &rarr; Calendar opens on it</strong>, and it is laid out like your
+          spreadsheet:
+        </p>
+        <ul style="margin:0 0 14px 20px;padding:0">
+          <li>One row per cart, grouped by model with a grey band between them, as yours are.</li>
+          <li><strong>DO</strong> on the day a cart is dropped off, <strong>PU</strong> on the day it
+            is picked up, and <strong>PU/DO</strong> when a cart comes back and goes straight out
+            again &mdash; the same marks you use.</li>
+          <li>The customer&rsquo;s name across each rental. Click it, or a DO or PU, to open that
+            booking.</li>
+          <li><strong>Click any day number</strong> for that day as a list: drop-offs, then pickups,
+            then carts out all day, each one click from the booking. That is the view for a
+            4th of July.</li>
+          <li>Previous and next month buttons, and the cart names stay put while you scroll across
+            the days.</li>
+        </ul>
+        <p style="margin-bottom:0">
+          The old monthly calendar is still there, one click away, under <em>Month</em>.
+        </p>
+      </div>
+
+      <h3>Your questions, answered</h3>
+      <div class="panel">
+        <p>
+          <strong>When do customers get the welcome email with check-in instructions?</strong>
+          Until now, no email carried them &mdash; they were only in the app. We took your
+          suggestion: the <em>Payment Complete</em> email now includes your check-in instructions.
+          Every renter gets that email exactly once &mdash; when the balance is taken 14 days out,
+          or at booking if they paid in full. The wording is whatever is in
+          <strong>Admin &rarr; App Content &rarr; Check-in instructions</strong>, so you can change
+          it there at any time. If that box is empty, the email simply leaves the section out
+          &mdash; worth checking it says what you want.
+        </p>
+        <p style="margin-bottom:0">
+          <strong>What happens to your booking at the 14-day mark?</strong> SWC-1V510E starts on
+          21 October, so on 7 October the system charges the remaining $311.80 to the card you
+          booked with and places the $250.00 damage deposit as a hold, not a charge. You will get
+          the Payment Complete email, now with the check-in instructions, and the booking shows as
+          paid in full on the schedule. Nothing to do on your side.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p>
+          <strong>FreshBooks &mdash; a few minutes from you.</strong> The connection is built; it
+          needs your FreshBooks account to allow it:
+        </p>
+        <ol style="margin:0 0 10px 20px;padding:0">
+          <li>Open <strong>Admin &rarr; Integrations</strong> on the site. If there is a
+            <em>Connect FreshBooks</em> button, click it, sign in to FreshBooks and approve
+            &mdash; that is all.</li>
+          <li>If it instead says the keys are missing, create an app in your FreshBooks
+            developer settings, paste in the redirect address shown on that same Integrations
+            page, and send us the two keys FreshBooks gives you. We will put them in, and you
+            click Connect.</li>
+        </ol>
+        <p style="margin-bottom:0">
+          From then on, every booking gets its rental and deposit invoices in FreshBooks as the
+          money comes in.
+        </p>
+      </div>
+    </section>
 
     <!-- ── FIXED 28 SEP ──────────────────────────────────── -->
     <section id="fixed-28">
@@ -860,12 +993,12 @@
     <section id="office">
       <h2>Running it from the office</h2>
 
-      <h3>The fleet calendar</h3>
+      <h3>The schedule</h3>
       <p>
-        A month at a time, one row per cart, one column per day — the same shape as your
-        spreadsheet, deliberately. Colour tells you the state without opening anything. Click a
-        block to open the booking, click a day to see everything happening that day, and switch to
-        compact to fit more carts on screen.
+        Admin → Calendar. A month at a time, one row per cart grouped by model, one column per day
+        — the same shape as your spreadsheet, with DO and PU on the days they happen. Colour tells
+        you the state without opening anything. Click a rental to open the booking, click a day for
+        its drop-offs, pickups and carts out, and switch to compact to fit more carts on screen.
       </p>
 
       <h3>Finding anything</h3>
@@ -1012,8 +1145,8 @@
       <ol class="steps">
         <li><p>Book a cart <strong>next week</strong>. You should pay in full, and see the rental and the deposit as two separate figures.</p></li>
         <li><p>Book one <strong>two months out</strong>. You should pay $125, tick the acknowledgement, and see what is due later.</p></li>
-        <li><p>Sign the agreement and upload a licence and insurance photo. Watch the booking turn green only once everything is done.</p></li>
-        <li><p>Open the admin calendar. Find both bookings, check the colours, click into one.</p></li>
+        <li><p>Sign the agreement and upload a licence and insurance photo, then add another driver. Watch the booking turn green only once everything is done.</p></li>
+        <li><p>Open Admin → Calendar. Find both bookings on the schedule, check the DO and PU, click a day number, then click into a booking.</p></li>
         <li><p>Assign a driver, then open the driver app and mark it delivered.</p></li>
         <li><p>Mark it collected. The deposit hold should release and the customer should be emailed.</p></li>
         <li><p>Add a damage charge to a finished booking and take it from the card.</p></li>
@@ -1063,9 +1196,9 @@
               <td>Needs your DNS access</td>
             </tr>
             <tr>
-              <td><strong>FreshBooks redirect address</strong></td>
-              <td>Connects invoicing. We will walk you through it</td>
-              <td>Your FreshBooks developer settings</td>
+              <td><strong>Connect FreshBooks</strong></td>
+              <td>Connects invoicing. <a href="#fixed-03">The steps are here</a></td>
+              <td>Admin → Integrations</td>
             </tr>
             <tr>
               <td><strong>Apple &amp; Google accounts</strong></td>
@@ -1078,10 +1211,10 @@
 
       <div class="callout">
         <p>
-          On the FreshBooks one — you asked what it meant, and it is a fair question. It is one line
-          you paste into a settings box in your FreshBooks developer account, which tells FreshBooks
-          it is allowed to talk to your rental system. We will send a screenshot showing exactly
-          where it goes.
+          On the FreshBooks one — you asked what it meant, and it is a fair question. It is what
+          tells FreshBooks it is allowed to talk to your rental system. Start at Admin →
+          Integrations: it may only need you to click Connect. The full steps are in
+          <a href="#fixed-03">What you found on 3 October</a>.
         </p>
       </div>
     </section>
