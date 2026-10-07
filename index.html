@@ -333,13 +333,14 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Everything from 23 Sep, 28 Sep and 3 Oct fixed and live &middot; the pickup decision and FreshBooks waiting on you</span>
+      <span><b>Status</b> Everything you have found so far fixed and live &middot; FreshBooks waiting on you</span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
 
   <nav class="toc">
     <p>Contents</p>
+    <a href="#fixed-07">What you found on 7 Oct</a>
     <a href="#fixed-03">What you found on 3 Oct</a>
     <a href="#fixed-28">What you found on 28 Sep</a>
     <a href="#fixed">What you found on 23 Sep</a>
@@ -348,7 +349,7 @@
     <a href="#journey">A booking, start to finish</a>
     <a href="#automatic">What runs on its own</a>
     <a href="#office">Running it from the office</a>
-    <a href="#apps">The two apps</a>
+    <a href="#apps">The app</a>
     <a href="#testing">How to test</a>
     <a href="#from-you">What we need from you</a>
     <a href="#later">Not in this release</a>
@@ -356,6 +357,100 @@
   </nav>
 
   <main>
+
+    <!-- ── FIXED 7 OCT ───────────────────────────────────── -->
+    <section id="fixed-07">
+      <h2>What you found on 7 October</h2>
+      <p class="lede">
+        The &ldquo;Page not found&rdquo; you hit on your booking is fixed, and it led us to a second
+        problem worth telling you about. The schedule now reads like your spreadsheet, the pickup
+        times follow your 3-day rule, and your questions are answered below.
+      </p>
+
+      <div class="panel">
+        <h3>&ldquo;Page not found&rdquo; when you clicked your booking</h3>
+        <p>
+          Good news first: your booking&rsquo;s 14-day charge went through on schedule. Marking it
+          paid in full is what broke the page. That step also cleared a &ldquo;failed
+          payment&rdquo; warning the booking never had, and left a record the booking page could
+          not read. Every booking reaching paid in full would have done the same.
+        </p>
+        <p>
+          <strong>The same mistake hid something more serious.</strong> On 28 September we set the
+          office alert for a declined card to go out once per problem. The check behind that
+          treated every booking as already having a problem, so the alert for a declined card was
+          never sent. If any card was declined in that time, your office would not have heard.
+        </p>
+        <p style="margin-bottom:0">
+          Both are fixed and live, your booking opens normally, and we added a test that builds a
+          booking exactly as the database hands it back &mdash; the case our earlier tests missed.
+        </p>
+      </div>
+
+      <h3>The schedule</h3>
+      <div class="panel">
+        <ul style="margin:0;padding:0 0 0 20px">
+          <li><strong>The dates stay at the top</strong> as you scroll down, like the frozen row in
+            your Google Sheet, and the cart numbers stay on the left as you scroll across.</li>
+          <li><strong>DO, x and PU in the cells</strong>, with no names &mdash; drop-off, every day
+            out, and pickup, the way your sheet reads. PU/DO when one comes back and another goes
+            out the same day.</li>
+          <li><strong>Hover over a rental</strong> for the customer, booking number, phone number
+            and delivery address. Click it to open the booking.</li>
+          <li><strong>Click a day number</strong> for that day&rsquo;s drop-offs and pickups as a
+            list, each with its address and phone number.</li>
+        </ul>
+      </div>
+
+      <h3>Pickup times: your 3-day rule</h3>
+      <div class="panel">
+        <p>
+          Rentals of <strong>up to 3 days get the full 24 hours</strong>: dropped off 2:00 to
+          4:00 PM and collected 2:00 to 4:00 PM on the last day. <strong>Four days and up go by
+          the night</strong>: collected 8:00 to 10:00 AM. The booking system already held carts
+          this way; the screens were telling everyone 8:00 to 10:00 AM. Now the first booking step
+          explains both, and the end date and address steps show the exact pickup time for the
+          dates chosen.
+        </p>
+        <p style="margin-bottom:0">
+          One thing for you: your written rental agreement says &ldquo;all pickups are at 8 AM
+          unless otherwise specified&rdquo;. You may want that line to say the same as the site.
+        </p>
+      </div>
+
+      <h3>Your questions, answered</h3>
+      <div class="panel">
+        <p>
+          <strong>If a card is declined at the 14-day charge, what happens?</strong> The booking
+          turns red and cannot be sent out for delivery. The customer is emailed a secure link to
+          update their card, your office is emailed, and the card is tried again each day until it
+          goes through &mdash; the booking then clears on its own. Nothing is cancelled
+          automatically; that stays your call. If the bank wants the cardholder to confirm the
+          payment, they are sent a link to do that instead.
+        </p>
+        <p>
+          <strong>Is there a separate app for drivers?</strong> No &mdash; it is one app with two
+          ways in. A customer signs in and sees their rental. A driver signs in and sees that
+          day&rsquo;s drop-offs and pickups, with addresses and directions. Add your drivers in
+          <strong>Admin &rarr; Staff &amp; drivers</strong>. Signed in as yourself, you will see the
+          driver side.
+        </p>
+        <p>
+          <strong>Have we tested it thoroughly?</strong> Every change goes through over 300
+          automatic checks, and we run bookings end to end on a test copy with a full month of
+          carts before anything goes live. That still missed the bug above, because it only
+          appeared on a real booking reaching its 14-day charge &mdash; which is exactly why your
+          careful testing before customers use it is the right call.
+        </p>
+        <p style="margin-bottom:0">
+          <strong>Is the FreshBooks app in your photo ours?</strong> No. &ldquo;Rental App
+          Payments&rdquo;, created February 2022, belongs to the previous developer. Leave it
+          connected until the old system is switched off. For ours, click <em>Create New App</em>
+          on that same page, paste in the redirect address shown on our Admin &rarr; Integrations
+          page, and send us the two keys FreshBooks gives you.
+        </p>
+      </div>
+    </section>
 
     <!-- ── FIXED 3 OCT ───────────────────────────────────── -->
     <section id="fixed-03">
@@ -650,9 +745,9 @@
 
       <div class="callout warn">
         <p style="margin-bottom:0">
-          <strong>Waiting on you:</strong> sell by the night, with every pickup before 10:00 AM
-          &mdash; or keep 24 hours for rentals of one to three days, collected in the afternoon?
-          Until you choose, the site keeps telling customers pickup is 8:00 to 10:00 AM.
+          <strong>Decided 7 October:</strong> rentals of up to 3 days keep their full 24 hours and
+          are collected in the afternoon; longer rentals are collected in the morning.
+          <a href="#fixed-07">Details here.</a>
         </p>
       </div>
 
@@ -1051,7 +1146,12 @@
 
     <!-- ── APPS ──────────────────────────────────────────── -->
     <section id="apps">
-      <h2>The two apps</h2>
+      <h2>The app: one app, two ways in</h2>
+      <p>
+        Customers and drivers download the same app. What they see depends on who signs in: a
+        customer gets their rental, a driver gets the day&rsquo;s schedule. Driver accounts are
+        added in Admin &rarr; Staff &amp; drivers.
+      </p>
 
       <div class="grid2">
         <div class="panel">
@@ -1197,7 +1297,7 @@
             </tr>
             <tr>
               <td><strong>Connect FreshBooks</strong></td>
-              <td>Connects invoicing. <a href="#fixed-03">The steps are here</a></td>
+              <td>Connects invoicing. <a href="#fixed-07">The steps are here</a></td>
               <td>Admin → Integrations</td>
             </tr>
             <tr>
@@ -1212,9 +1312,9 @@
       <div class="callout">
         <p>
           On the FreshBooks one — you asked what it meant, and it is a fair question. It is what
-          tells FreshBooks it is allowed to talk to your rental system. Start at Admin →
-          Integrations: it may only need you to click Connect. The full steps are in
-          <a href="#fixed-03">What you found on 3 October</a>.
+          tells FreshBooks it is allowed to talk to your rental system. The app in your FreshBooks account now is the
+          previous developer&rsquo;s, so create a new one &mdash; the steps are in
+          <a href="#fixed-07">What you found on 7 October</a>.
         </p>
       </div>
     </section>
