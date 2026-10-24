@@ -333,13 +333,14 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Everything you have found so far fixed and live &middot; your prices and fleet loaded &middot; FreshBooks waiting on you</span>
+      <span><b>Status</b> Everything you have found so far fixed and live &middot; your prices and fleet loaded &middot; Saturdays, coupon codes and FreshBooks waiting on you</span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
 
   <nav class="toc">
     <p>Contents</p>
+    <a href="#fixed-24">What you found on 24 Oct</a>
     <a href="#prices">Your prices and fleet</a>
     <a href="#fixed-07">What you found on 7 Oct</a>
     <a href="#fixed-03">What you found on 3 Oct</a>
@@ -358,6 +359,89 @@
   </nav>
 
   <main>
+
+    <!-- ── FIXED 24 OCT ──────────────────────────────────── -->
+    <section id="fixed-24">
+      <h2>What you found on 24 October</h2>
+      <p class="lede">
+        The wrong dates in your video are fixed, the damage-photo wording is yours, and your
+        questions are answered below. Two of them need a quick answer from you.
+      </p>
+
+      <div class="panel">
+        <h3>A Saturday booking showed Friday</h3>
+        <p>
+          You picked Saturday 24 to Saturday 31 October, and the address step showed a drop-off on
+          Friday 23 and a pickup on Friday 30. The booking itself always had the right days, as
+          did the prices and the emails. The screens were showing them a day early to anyone in a
+          US time zone.
+        </p>
+        <p style="margin-bottom:0">
+          Every date a customer sees now shows the day they picked: the booking steps, the price
+          summary, the date the balance is charged, My Bookings and the confirmation page. Going
+          back to the date picker no longer moves the dates either.
+        </p>
+      </div>
+
+      <div class="panel">
+        <h3>Damage photos, in your words</h3>
+        <p style="margin-bottom:0">
+          The booking form now says: &ldquo;Please take photos or videos of any previous scratches
+          or damage and hold them in your phone until 24 hours after your rental is over. We may
+          ask for them.&rdquo; Your written rental agreement still says photos must be taken within
+          10 hours of delivery and reported, so you may want to update it to match.
+        </p>
+      </div>
+
+      <h3>Your questions, answered</h3>
+      <div class="panel">
+        <p>
+          <strong>Is a rental of 3 days or less counted as 24-hour days?</strong> Yes, already.
+          Up to 3 days: dropped off and picked up 2:00 to 4:00 PM, so each day is a full 24 hours.
+          Over 3 days: dropped off 2:00 to 4:00 PM and picked up 8:00 to 10:00 AM on the last day.
+          The site shows each customer their pickup time as soon as they choose their dates.
+        </p>
+        <p>
+          <strong>Can you close on Saturdays?</strong> You can already block out specific dates
+          in <strong>Admin &rarr; Schedule</strong>, but not &ldquo;every Saturday&rdquo;
+          automatically. That can be added; see the question below.
+        </p>
+        <p style="margin-bottom:0">
+          <strong>Can customers use coupon codes?</strong> Not yet. It can be added; see the
+          question below.
+        </p>
+      </div>
+
+      <div class="callout warn">
+        <p><strong>Waiting on you:</strong></p>
+        <ol style="margin:0 0 0 20px;padding:0">
+          <li><strong>Saturdays:</strong> do you mean (a) no drop-offs or pickups on Saturdays,
+            though a rental can still run through one, or (b) no rentals over a Saturday at
+            all?</li>
+          <li><strong>Coupon codes:</strong> percentage off, a fixed amount, or both? Off the rent
+            only, or tax and the booking fee too? Do codes expire or have a usage limit? Once per
+            customer, or anyone, any number of times?</li>
+        </ol>
+      </div>
+
+      <div class="panel">
+        <h3>Connecting FreshBooks</h3>
+        <p>It needs a step from each of us, which is why the button alone did not work:</p>
+        <ol style="margin:0 0 12px 20px;padding:0">
+          <li>In FreshBooks, open the app <em>you</em> created (not &ldquo;Rental App
+            Payments&rdquo;, which is the previous developer&rsquo;s). It shows a
+            <strong>Client ID</strong> and a <strong>Client Secret</strong>.</li>
+          <li>Send us those two privately; they work like a password.</li>
+          <li>We put them into the system and tell you.</li>
+          <li>Go to <strong>Admin &rarr; Integrations</strong>, click <strong>Connect
+            FreshBooks</strong>, sign in to FreshBooks and approve.</li>
+        </ol>
+        <p style="margin-bottom:0">
+          If you have already sent the two keys and it still fails, send us a screenshot of what
+          you see.
+        </p>
+      </div>
+    </section>
 
     <!-- ── PRICES & FLEET 20 OCT ────────────────────────── -->
     <section id="prices">
@@ -751,7 +835,7 @@
         </p>
         <p style="margin-bottom:0">
           <strong>The $150 check-in report option is gone.</strong> Customers are simply told to
-          photograph any existing damage within 10 hours of delivery and send it to you. It is
+          photograph any existing damage (since 24 October, in your own words). It is
           still Option 2 in your written agreement, so you may want to take it out of the wording
           there too. If you ever want the paid option back, it is a small change.
         </p>
@@ -1399,7 +1483,7 @@
             </tr>
             <tr>
               <td><strong>Connect FreshBooks</strong></td>
-              <td>Connects invoicing. <a href="#fixed-07">The steps are here</a></td>
+              <td>Send us your app&rsquo;s Client ID and Secret, then click Connect. <a href="#fixed-24">The steps are here</a></td>
               <td>Admin → Integrations</td>
             </tr>
             <tr>
@@ -1416,7 +1500,7 @@
           On the FreshBooks one — you asked what it meant, and it is a fair question. It is what
           tells FreshBooks it is allowed to talk to your rental system. The app in your FreshBooks account now is the
           previous developer&rsquo;s, so create a new one &mdash; the steps are in
-          <a href="#fixed-07">What you found on 7 October</a>.
+          <a href="#fixed-24">What you found on 24 October</a>.
         </p>
       </div>
     </section>
