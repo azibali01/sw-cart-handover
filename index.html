@@ -333,13 +333,14 @@
     <div class="meta">
       <span><b>Prepared for</b> South Walton Carts LLC</span>
       <span><b>Covers</b> Website · Admin panel · Customer app · Driver app</span>
-      <span><b>Status</b> Everything you have found so far fixed and live &middot; your prices and fleet loaded &middot; Saturdays, coupon codes and FreshBooks waiting on you</span>
+      <span><b>Status</b> Everything you have found so far fixed and live &middot; your prices and fleet loaded &middot; FreshBooks ready to connect &middot; <a href="#fixed-26">a few answers needed from you</a></span>
       <span><b>Start here</b> <a href="#testing">Links, app download and test cards</a></span>
     </div>
   </header>
 
   <nav class="toc">
     <p>Contents</p>
+    <a href="#fixed-26">Your test findings, 26 Oct</a>
     <a href="#fixed-24">What you found on 24 Oct</a>
     <a href="#prices">Your prices and fleet</a>
     <a href="#fixed-07">What you found on 7 Oct</a>
@@ -359,6 +360,111 @@
   </nav>
 
   <main>
+
+    <!-- ── TEST FINDINGS 26 OCT ──────────────────────────── -->
+    <section id="fixed-26">
+      <h2>Your test findings, 26 October</h2>
+      <p class="lede">
+        Thank you for the findings document. Everything in it that we could fix without you is
+        fixed and live, and the leftover test data is cleared out. A short list near the end
+        needs something from you.
+      </p>
+
+      <div class="callout">
+        <p style="margin-bottom:0">
+          <strong>FreshBooks is ready to connect.</strong> Your new app&rsquo;s keys are in the
+          system. Go to <strong>Admin &rarr; Integrations</strong>, click <strong>Connect
+          FreshBooks</strong>, sign in to FreshBooks and approve. If anything goes wrong, send us
+          a screenshot.
+        </p>
+      </div>
+
+      <h3>Fixed</h3>
+      <div class="scroller">
+        <table>
+          <thead><tr><th>#</th><th>What you found</th><th>What we did</th></tr></thead>
+          <tbody>
+            <tr><td>2</td><td>The deposit hold should last at least 7 days after the rental</td>
+              <td>A card hold lasts about 7 days, so the system now renews it until
+                <strong>7 days after the rental ends</strong>, including after the cart is back.
+                Stripe&rsquo;s 30-day holds need special approval from Stripe for your
+                account.</td></tr>
+            <tr><td>4</td><td>Placeholder contact details</td>
+              <td>Your email and phone (tap to email or call), the area you serve, and your
+                drop-off and pickup times</td></tr>
+            <tr><td>6</td><td>Made-up reviews and stats</td>
+              <td>Removed. The About page now states only real facts. Your Google reviews can
+                go on once you send the link.</td></tr>
+            <tr><td>7</td><td>Prices did not match across the site</td>
+              <td>One source of prices: <strong>Admin &rarr; Pricing</strong>. Cart Models no
+                longer shows the old per-night price, and cart prices say &ldquo;for 1
+                day&rdquo;, since every length has its own price.</td></tr>
+            <tr><td>8, 14</td><td>2-seaters you do not have</td>
+              <td>Removed, with their carts</td></tr>
+            <tr><td>10</td><td>A Draft booking with a paid rental</td>
+              <td>The customer paid the rent but did not finish the deposit step, and the booking
+                stayed a Draft. It is now a paid reservation, and the deposit is taken from the
+                card they paid with. Future bookings like it are handled the same way, on
+                their own.</td></tr>
+            <tr><td>11</td><td>Dashboard said 0 active rentals but 3 carts out</td>
+              <td>Both now count carts actually with a customer, so they always agree</td></tr>
+            <tr><td>12</td><td>Cart 09858Z still showed Rented</td>
+              <td>Carts were marked Rented when a booking was paid, weeks ahead, and never put
+                back. Now a cart shows Rented only while it is out. 09858Z and three others are
+                back to Available.</td></tr>
+            <tr><td>13</td><td>Revenue was $125 apart</td>
+              <td>Dashboard and Financials now count the same thing, rental money received
+                including reservation deposits, and both say so</td></tr>
+            <tr><td>15</td><td>End date hard to pick on a phone</td>
+              <td>On a phone the calendar now opens on its own, instead of covering the other
+                box</td></tr>
+            <tr><td>16</td><td>Old end date stayed after changing the start</td>
+              <td>An end date that no longer fits is cleared</td></tr>
+            <tr><td>17</td><td>No message when the end date is blank</td>
+              <td>Check Availability now says which date is missing</td></tr>
+            <tr><td>18</td><td>Today offered, then refused as &ldquo;in the past&rdquo;</td>
+              <td>The site was using UTC rather than Central time. &ldquo;Today&rdquo; is now
+                Central time, and same-day bookings close at <strong>4 PM</strong> with a
+                message saying so.</td></tr>
+            <tr><td></td><td>Footer, social icons, homepage boxes, Google title</td>
+              <td>Footer shows the current year, icons that went nowhere are removed, each
+                homepage box says its own thing, and the site is titled &ldquo;South Walton
+                Carts | Golf Cart Rentals on 30A&rdquo; for Google</td></tr>
+            <tr><td></td><td>Schedule settings looked blank</td>
+              <td>They show the rules in force: at least 1 night, bookable up to 730 days
+                ahead</td></tr>
+            <tr><td></td><td>Test data still live</td>
+              <td>The &ldquo;Test Blackout&rdquo; is removed. No customer accounts were
+                deleted; tell us which ones to remove.</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="callout warn">
+        <p><strong>Waiting on you:</strong></p>
+        <ol style="margin:0 0 0 20px;padding:0">
+          <li><strong>Privacy Policy and Terms of Service</strong> (#5) are legal documents. Do
+            you have your own? If not, we can draft them from your rental agreement for your
+            lawyer to check.</li>
+          <li><strong>Your Google reviews link</strong> (#6), so your real reviews can go on the
+            site.</li>
+          <li><strong>Sending email</strong> (#9): booking emails need to come from your
+            address. Send us an app password for southwaltongolfcartrentals@gmail.com (Google
+            Account &rarr; Security &rarr; App passwords), or give us access to your domain&rsquo;s
+            DNS.</li>
+          <li><strong>Your story</strong> for the About page, and links to your social media
+            pages if you want the icons back.</li>
+          <li><strong>Proof of insurance:</strong> must every renter upload it? Right now the
+            booking asks for a licence and insurance.</li>
+          <li><strong>The 4 PM same-day cutoff</strong> came from your findings document.
+            Confirm that is the rule you want.</li>
+          <li><strong>Test customer accounts:</strong> tell us which ones to delete (for
+            example &ldquo;adam bred&rdquo;).</li>
+          <li><strong>The safety video:</strong> add its link in Admin &rarr; App Content and
+            switch it on.</li>
+        </ol>
+      </div>
+    </section>
 
     <!-- ── FIXED 24 OCT ──────────────────────────────────── -->
     <section id="fixed-24">
@@ -426,6 +532,7 @@
 
       <div class="panel">
         <h3>Connecting FreshBooks</h3>
+        <p><strong>Update, 26 October:</strong> your keys are in. Only step 4 is left.</p>
         <p>It needs a step from each of us, which is why the button alone did not work:</p>
         <ol style="margin:0 0 12px 20px;padding:0">
           <li>In FreshBooks, open the app <em>you</em> created (not &ldquo;Rental App
@@ -1478,12 +1585,12 @@
             </tr>
             <tr>
               <td><strong>Sending email address</strong></td>
-              <td>So booking emails come from your domain, not a test address</td>
-              <td>Needs your DNS access</td>
+              <td>So booking emails come from your address. An app password for your Gmail works, or access to your domain&rsquo;s DNS.</td>
+              <td>Send it to us</td>
             </tr>
             <tr>
               <td><strong>Connect FreshBooks</strong></td>
-              <td>Send us your app&rsquo;s Client ID and Secret, then click Connect. <a href="#fixed-24">The steps are here</a></td>
+              <td>Your keys are in. Click Connect on that page and approve. <a href="#fixed-26">Details</a></td>
               <td>Admin → Integrations</td>
             </tr>
             <tr>
@@ -1499,8 +1606,8 @@
         <p>
           On the FreshBooks one — you asked what it meant, and it is a fair question. It is what
           tells FreshBooks it is allowed to talk to your rental system. The app in your FreshBooks account now is the
-          previous developer&rsquo;s, so create a new one &mdash; the steps are in
-          <a href="#fixed-24">What you found on 24 October</a>.
+          previous developer&rsquo;s. Your new one is set up; just click Connect, as described in
+          <a href="#fixed-26">your test findings</a>.
         </p>
       </div>
     </section>
